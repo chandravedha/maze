@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze Game</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Name input -->
+        <div id="welcome">
+            <label for="playerName">Enter your name:</label>
+            <input type="text" id="playerName" placeholder="Your Name">
+            <button onclick="startGame()">Start Game</button>
+        </div>
+
+        <!-- Game section -->
+        <div id="game" style="display: none;">
+            <header>
+                <h1 id="greeting">Welcome, <span id="displayName"></span></h1>
+                <div>
+                    <button onclick="toggleMode()">Toggle Light/Dark Mode</button>
+                    <span>Times Played: <span id="timesPlayed">0</span></span>
+                </div>
+                <div id="timer">Time: 0s</div>
+            </header>
+
+            <!-- Maze grid with walls -->
+            <div id="maze">
+                <div class="cell open" id="player"></div>
+                <div class="cell wall"></div>
+                <div class="cell wall"></div>
+                <div class="cell open"></div>
+                <div class="cell open"></div>
+                <div class="cell wall"></div>
+                <div class="cell wall"></div>
+                <div class="cell open"></div>
+                <div class="cell finish" id="finish"></div>
+            </div>
+
+            <button onclick="finishGame()">Finish Game</button>
+        </div>
+    </div>
+
+    <!-- Modal for result display -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Congratulations, <span id="modalName"></span>!</h2>
+            <p>Your time: <span id="modalTime"></span>s</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
